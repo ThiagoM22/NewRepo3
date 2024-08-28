@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AppFluxoDeCaixa.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppFluxoDeCaixa.Data
@@ -8,6 +9,12 @@ namespace AppFluxoDeCaixa.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+        public DbSet<Clientes> Clientes { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Clientes>().ToTable("4368Clientes");
         }
     }
 }
