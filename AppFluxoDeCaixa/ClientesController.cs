@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AppFluxoDeCaixa.Data;
 using AppFluxoDeCaixa.Models;
 
-namespace AppFluxoDeCaixa.Controllers
+namespace AppFluxoDeCaixa
 {
     public class ClientesController : Controller
     {
@@ -54,7 +54,7 @@ namespace AppFluxoDeCaixa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClientesId,ClientesName,Logradouro,Cidade,UF,CEP,Bairro,Email,Telefone,Celular,TipoPessoa,CpfCnpj,DataCadastro,DataNascFund,CadastroAtivo,Observacao")] Clientes clientes)
+        public async Task<IActionResult> Create([Bind("ClientesId,ClientesName,Logradouro,Cidade,UF,CEP,Bairro,Email,Telefone,Celular,TipoPessoa,CpfCnpj,DataCadastro,DataNascFund,CadastroAtivo,Observacao,numero")] Clientes clientes)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace AppFluxoDeCaixa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ClientesId,ClientesName,Logradouro,Cidade,UF,CEP,Bairro,Email,Telefone,Celular,TipoPessoa,CpfCnpj,DataCadastro,DataNascFund,CadastroAtivo,Observacao")] Clientes clientes)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ClientesId,ClientesName,Logradouro,Cidade,UF,CEP,Bairro,Email,Telefone,Celular,TipoPessoa,CpfCnpj,DataCadastro,DataNascFund,CadastroAtivo,Observacao,numero")] Clientes clientes)
         {
             if (id != clientes.ClientesId)
             {

@@ -1,123 +1,79 @@
 ﻿@model IEnumerable<AppFluxoDeCaixa.Models.Clientes>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cadastro de Clientes";
 }
+<div class="container">
 
-<h1>Index</h1>
+    <h1 class="display-5 text-center">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="table-responsive">
+    <p>
+        <a asp-action="Create" class="btn btn-lg btn-secondary mt-3">Adicionar</a>
+    </p>
+    <div class="table-responsive ">
 
-<table class="table table-hover table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientesName)
+        <table class="table table-dark table-striped table-hover ">
+            <thead>
+                <track>
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.ClientesName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logradouro)
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.Celular)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UF)
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.CpfCnpj)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CEP)
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.DataNascFund)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
+            <th class="bg-black">
+                    @Html.DisplayNameFor(model => model.CadastroAtivo)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Celular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoPessoa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CpfCnpj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCadastro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataNascFund)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadastroAtivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Observacao)
-            </th>
+
             <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClientesName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UF)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CEP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bairro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Celular)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipoPessoa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CpfCnpj)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataCadastro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataNascFund)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CadastroAtivo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Observacao)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ClientesId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ClientesId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ClientesId">Delete</a>
-                </td>
             </tr>
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientesName)
+                        </td>
+                        <td class="text-light text-decoration-none">
+                            @item.Email
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Celular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CpfCnpj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataNascFund)
+                        </td>
+                        <td>
+                            @if (item.CadastroAtivo == true)
+                            {
+                                <span>Sim</span>
+                            }
+                            else
+                            {
+                                <span>Não</span>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary ms-2" asp-action="Edit" asp-route-id="@item.ClientesId">Editar</a> 
+                            <a class="btn btn-outline-info ms-2" asp-action="Details" asp-route-id="@item.ClientesId">Detalhes</a> 
+                            <a class="btn btn-outline-danger ms-2" asp-action="Delete" asp-route-id="@item.ClientesId">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
