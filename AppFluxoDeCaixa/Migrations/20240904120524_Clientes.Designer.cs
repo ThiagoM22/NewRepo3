@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppFluxoDeCaixa.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240903144312_Clientes")]
+    [Migration("20240904120524_Clientes")]
     partial class Clientes
     {
         /// <inheritdoc />
