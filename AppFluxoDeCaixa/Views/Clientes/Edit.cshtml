@@ -1,17 +1,17 @@
 ﻿@model AppFluxoDeCaixa.Models.Clientes
 
 @{
-    ViewData["Title"] = "Editar Cliente";
+    ViewData["Title"] = "Editar";
 }
 
-<h1 class="display-5 text-light text-center">@ViewData["Title"]</h1>
+<h1 class="display-5 text-light text-center">Editar Cadastro de Clientes</h1>
 
-<h4>Cliente</h4>
+
+
 <hr />
 
 <form asp-action="Edit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
     <div class="row">
         <div class="col-12 col-md-6 mt-2">
             <input type="hidden" asp-for="ClientesId" />
@@ -125,40 +125,37 @@
             </div>
         </div>
         <div class="col-12 col-md-1 mt-2">
-            <label class="control-label"> Ativo?</label>
+            <label>Ativo?</label>
             <div class="form-check form-switch form-control-lg">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" asp-for="CadastroAtivo" /> SIM
+                <input class="form-check-input" type="checkbox" role="switch" asp-for="CadastroAtivo" /> SIM
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-12 mt-2">
+        <div class="col col-md-12 mt-3">
             <div class="form-group">
                 <label asp-for="Observacao">Observações</label>
-                <textarea asp-for="Observacao" class="form-control" id="Observacao" name="Observacao" rows="3"></textarea>
+                <textarea asp-for="Observacao" class="form-control" itemid="Observacao" name="Observacao" rows="3"></textarea>
             </div>
             <span asp-validation-for="Observacao" class="text-danger"></span>
         </div>
-
     </div>
-
 
     <div class="row">
-        <div class="col col-md-4 mt-4">
-            <a class="btn btn-outline-secondary w-100" asp-action="Index">Voltar</a>
+        <div class="col-4">
+            <a class="btn btn-outline-secondary w-100 mt-4" asp-action="Index">Voltar</a>
         </div>
-
-        <div class="col-2 col-md mt-4">
+        <div class="col-4">
         </div>
-        <div class="col col-md-4 mt-4">
-            <input type="submit" value="Salvar" class="btn btn-success w-100" />
+        <div class="col-4">
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success w-100 mt-4" />
+            </div>
         </div>
     </div>
 
-
 </form>
-
 
 
 @section Scripts {

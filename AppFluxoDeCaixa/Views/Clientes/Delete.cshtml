@@ -1,15 +1,14 @@
 ﻿@model AppFluxoDeCaixa.Models.Clientes
 
 @{
-    ViewData["Title"] = "Deletar Clientes";
+    ViewData["Title"] = "Deletar Cliente";
 }
 
-<h1 class="display-5 text-light text-center">Deletar Cadastro de Cliente</h1>
-
+<h1 class="display-5 text-light text-center">Deletar Cadastro do Cliente</h1>
 
 <h3 class="mt-3 mb-3">Deseja excluir esse cadastro?</h3>
+
 <div>
-    <h4>Clientes</h4>
     <hr />
     <dl class="row">
         <dt class="col-3">
@@ -22,30 +21,37 @@
             @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class="col-9">
-            @Model.Email
-        <dt class="col-3">
-                @Html.DisplayNameFor(model => model.Celular)
-        </dt>
-        <dd class="col-9">
-                @Html.DisplayFor(model => model.Celular)
+            @Model.Email)
         </dd>
         <dt class="col-3">
-                @Html.DisplayNameFor(model => model.CpfCnpj)
+            @Html.DisplayNameFor(model => model.Celular)
         </dt>
         <dd class="col-9">
-                @Html.DisplayFor(model => model.CpfCnpj)
+            @Html.DisplayFor(model => model.Celular)
         </dd>
         <dt class="col-3">
-                @Html.DisplayNameFor(model => model.DataNascFund)
+            @Html.DisplayNameFor(model => model.CpfCnpj)
         </dt>
         <dd class="col-9">
-                @Html.DisplayFor(model => model.DataNascFund)
+            @Html.DisplayFor(model => model.CpfCnpj)
+        </dd>
+        <dt class="col-3">
+            @Html.DisplayNameFor(model => model.DataNascFund)
+        </dt>
+        <dd class="col-9">
+            @Html.DisplayFor(model => model.DataNascFund)
+        </dd>
+        <dt class="col-3">
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+        <dd class="col-9">
+            @Html.DisplayFor(model => model.Observacao)
         </dd>
     </dl>
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="ClientesId" />
-        <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-outline-primary" asp-action="Index">Cancelar</a>
     </form>
 </div>

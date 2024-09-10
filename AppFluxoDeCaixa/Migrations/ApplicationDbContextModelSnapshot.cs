@@ -94,7 +94,42 @@ namespace AppFluxoDeCaixa.Migrations
 
                     b.HasKey("ClientesId");
 
-                    b.ToTable("4368Clientes", (string)null);
+                    b.ToTable("Fornecedor", (string)null);
+                });
+
+            modelBuilder.Entity("AppFluxoDeCaixa.Models.Fornecedor", b =>
+                {
+                    b.Property<Guid>("FornecedorID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.HasKey("FornecedorID");
+
+                    b.ToTable("Fornecedores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -6,38 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AppFluxoDeCaixa.Migrations
 {
     /// <inheritdoc />
-    public partial class Clientes : Migration
+    public partial class Inicio : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "4368Clientes",
-                columns: table => new
-                {
-                    ClientesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ClientesName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Logradouro = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UF = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
-                    CEP = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
-                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Celular = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    TipoPessoa = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CpfCnpj = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataNascFund = table.Column<DateOnly>(type: "date", nullable: false),
-                    CadastroAtivo = table.Column<bool>(type: "bit", nullable: false),
-                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    numero = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_4368Clientes", x => x.ClientesId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -75,6 +48,50 @@ namespace AppFluxoDeCaixa.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fornecedor",
+                columns: table => new
+                {
+                    ClientesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClientesName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Logradouro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UF = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
+                    CEP = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Celular = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    TipoPessoa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CpfCnpj = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataNascFund = table.Column<DateOnly>(type: "date", nullable: false),
+                    CadastroAtivo = table.Column<bool>(type: "bit", nullable: false),
+                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    numero = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fornecedor", x => x.ClientesId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fornecedores",
+                columns: table => new
+                {
+                    FornecedorID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CNPJ = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Ativo = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fornecedores", x => x.FornecedorID);
                 });
 
             migrationBuilder.CreateTable(
@@ -227,9 +244,6 @@ namespace AppFluxoDeCaixa.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "4368Clientes");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -243,6 +257,12 @@ namespace AppFluxoDeCaixa.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Fornecedor");
+
+            migrationBuilder.DropTable(
+                name: "Fornecedores");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

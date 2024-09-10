@@ -1,36 +1,38 @@
-﻿@model IEnumerable<AppFluxoDeCaixa.Models.Clientes>
+﻿@model IEnumerable<AppFluxoDeCaixa.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "Cadastro de Clientes";
+    ViewData["Title"] = "Fornecedores";
 }
-<div class=" container">
 
-    <h1 class="text-center text-light display-5">@ViewData["Title"]</h1>
+<h1 class="display-5 text-light text-center">@ViewData["Title"]</h1>
 
+<div class="container">
     <p>
         <a asp-action="Create" class=" mt-3 btn btn-secondary btn-group-lg     ">Adicionar</a>
     </p>
     <div class="table table-responsive mt-5">
+
+
         <table class="table table-hover table-dark table-striped">
             <thead>
                 <tr>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.ClientesName)
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CNPJ)
                     </th>
                     <th class="bg-black">
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.Celular)
+                        @Html.DisplayNameFor(model => model.Telefone)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.CpfCnpj)
+                        @Html.DisplayNameFor(model => model.DataCadastro)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.DataNascFund)
-                    </th>
-                    <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.CadastroAtivo)
+                        @Html.DisplayNameFor(model => model.Ativo)
                     </th>
                     <th class="bg-black"></th>
                 </tr>
@@ -40,24 +42,23 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ClientesName)
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CNPJ)
                         </td>
                         <td>
                             @item.Email
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Celular)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CpfCnpj)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DataNascFund)
-                        </td>
                         <td class="text-light">
-                            @if (item.CadastroAtivo == true)
+                            @if (item.Ativo == true)
                             {
                                 <span>Sim</span>
                             }
@@ -68,13 +69,12 @@
                         </td>
 
                         <td>
-                            <a class="btn btn-sm btn btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.ClientesId">Edit</a>
-                            <a class="btn btn-sm btn btn-outline-danger me-2" asp-action="Delete" asp-route-id="@item.ClientesId">Delete</a>
+                            <a class="btn btn-sm btn btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.FornecedorID">Edit</a>
+                            <a class="btn btn-sm btn btn-outline-danger me-2" asp-action="Delete" asp-route-id="@item.FornecedorID">Delete</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-
     </div>
 </div>

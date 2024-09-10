@@ -1,0 +1,79 @@
+﻿@model AppFluxoDeCaixa.Models.Fornecedor
+
+@{
+    ViewData["Title"] = "Editar Cadastro de fornecedor";
+}
+
+<h1 class="display-5 text-light text-center">@ViewData["Title"]</h1>
+
+
+<h4>Fornecedor</h4>
+
+<hr />
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class=" row">
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="CNPJ" class="control-label"></label>
+                <input asp-for="CNPJ" class="form-control" />
+                <span asp-validation-for="CNPJ" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="DataCadastro" class="control-label"></label>
+                <input readonly="readonly" asp-for="DataCadastro" class="form-control" />
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-12 col-md-1 mt-2">
+            <label>Ativo?</label>
+            <div class="form-check form-switch form-control-lg">
+                <input class="form-check-input" type="checkbox" role="switch" asp-for="Ativo" /> SIM
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <a class="btn btn-outline-secondary w-100 mt-4" asp-action="Index">Voltar</a>
+        </div>
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success w-100 mt-4" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
